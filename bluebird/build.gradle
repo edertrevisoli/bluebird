@@ -32,3 +32,15 @@ dependencies {
     compile group: 'postgresql', name: 'postgresql', version: '9.0-801.jdbc4'
 	compile group: 'org.primefaces.themes', name: 'cupertino', version: '1.0.10'
 }
+
+task deploy (type: Copy) {
+	includeEmptyDirs = true
+	def fromDir = rootProject.file('build/libs')
+	def toDir = rootProject.file('C:\\apache-tomcat-9.0.0.M13\\webapps')
+	from fromDir
+	into toDir
+	include '*.war'
+	println 'Copiando de: '+fromDir
+	println 'Para: '+toDir
+	}
+war.finalizedBy(deploy)

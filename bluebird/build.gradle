@@ -33,7 +33,6 @@ dependencies {
 	compile group: 'org.primefaces.themes', name: 'cupertino', version: '1.0.10'
 }
 
-
 task deploy (type: Copy) {
 	includeEmptyDirs = true
 	def fromDir = rootProject.file('build/libs')
@@ -44,4 +43,5 @@ task deploy (type: Copy) {
 	println 'Copiando de: '+fromDir
 	println 'Para: '+toDir
 }
+
 war.finalizedBy(deploy)

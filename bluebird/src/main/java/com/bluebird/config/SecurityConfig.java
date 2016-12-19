@@ -13,21 +13,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().
 		antMatchers("/secure/**").access("hasRole('ROLE_ADMIN')").
 		and().formLogin().  //login configuration
-        loginPage("/customLogin.xhtml").
+		loginPage("/login.xhtml").
         loginProcessingUrl("/appLogin").
         usernameParameter("app_username").
         passwordParameter("app_password").
-        defaultSuccessUrl("/secure/student.jsf")
-        .failureUrl("/customLogin.jsf?error=true").
+        defaultSuccessUrl("/secure/cadastros.jsf")
+        .failureUrl("/login.jsf?error=true").
 		and().logout().    //logout configuration
 		logoutUrl("/appLogout"). 
-		logoutSuccessUrl("/customLogin.jsf");
+		logoutSuccessUrl("/login.jsf");
 		//.and().exceptionHandling()
         //.accessDeniedPage("/customError.jsf");
 
 	} 
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		auth.inMemoryAuthentication().withUser("concretepage").password("concrete123").roles("ADMIN");
+		auth.inMemoryAuthentication().withUser("tanga").password("123").roles("ADMIN");
 	}	
 }  

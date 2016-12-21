@@ -1,23 +1,42 @@
 package com.bluebird.config;
+
+import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+	
+	@Autowired
+	DataSource dataSource;
+
+	@Autowired
+	public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
+
+	  auth.jdbcAuthentication().dataSource(dataSource)
+		.usersByUsernameQuery(
+			"select login,senha,ativo from usuario where login=?")
+		.authoritiesByUsernameQuery(
+			"select login,'ROLE_USER' from usuario where login=?");
+	}
+
+	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests().
-		antMatchers("/secure/**").access("hasRole('ROLE_ADMIN')").
+		antMatchers("/secure/**").access("hasRole('ROLE_USER')").
 		and().formLogin().  //login configuration
-		loginPage("/login.xhtml").
+		loginPage("/login.jsf").
         loginProcessingUrl("/appLogin").
         usernameParameter("app_username").
         passwordParameter("app_password").
-        defaultSuccessUrl("/secure/cadastros.jsf")
+        defaultSuccessUrl("/secure/menus/cadastros.jsf")
         .failureUrl("/login.jsf?error=true").
 		and().logout().    //logout configuration
 		logoutUrl("/appLogout"). 
@@ -25,9 +44,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		//.and().exceptionHandling()
         //.accessDeniedPage("/customError.jsf");
 
+		
+		//usernameParameter("app_username").
+        //passwordParameter("app_password").
+        
 	} 
-	@Autowired
-	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		auth.inMemoryAuthentication().withUser("tanga").password("123").roles("ADMIN");
-	}	
+//	@Autowired
+//	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+//		auth.inMemoryAuthentication().withUser("tanga").password("123").roles("USER");
+//	}	
 }  

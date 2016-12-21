@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" template="../template.xhtml">
+
+	<ui:define name="title">Cadastros</ui:define>
+
+	<ui:define name="conteudo">
+
+		<div id="menu_interno">
+
+			<ul>
+				<ui:repeat value="#{menuManageMB.getMenuInt('cadastros')}"
+					var="item">
+					<li><a href="#{item.link}" target="_self"><h:outputText
+								value="#{item.label}" /></a></li>
+				</ui:repeat>
+			</ul>
+
+		</div>
+
+	</ui:define>
+</ui:composition>

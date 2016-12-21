@@ -4,23 +4,13 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui" template="template.xhtml">
+	xmlns:p="http://primefaces.org/ui" template="../template.xhtml">
 
-	<ui:define name="title">Cadastros</ui:define>
+	<ui:define name="title">Usuários</ui:define>
 
 	<ui:define name="conteudo">
 
-		<div id="menu_filho">
 
-			<ul>
-				<ui:repeat value="#{menuConsultaMB.getMenuInt('consultas')}"
-					var="item">
-					<li><a href="#{item.link}" target="_self"><h:outputText
-								value="#{item.label}" /></a></li>
-				</ui:repeat>
-			</ul>
-
-		</div>
-
+		
 	</ui:define>
 </ui:composition>

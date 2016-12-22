@@ -9,26 +9,25 @@ import javax.inject.Named;
 
 import org.springframework.context.annotation.Scope;
 
+import com.bluebird.acesso.controller.AcessoManagerMB;
 import com.bluebird.cadastro.model.Menu;
-import com.bluebird.cadastro.model.Usuario;
 import com.bluebird.cadastro.service.MenuService;
 
 
-@Named("menuManageMB")
+@Named("menuManagerMB")
 @Scope("view")
-public class MenuManageMB implements Serializable {
+public class MenuManagerMB implements Serializable {
 
 	private static final long serialVersionUID = 4741882241553805840L;
 
 	private List<Menu> menus;
 	private List<Menu> menuSup;
 	private List<Menu> menuInt;
-	
-	private Usuario admin = new Usuario(1,"admin","admin@");
-	
-	
+		
 	@Inject
 	private MenuService menuService;
+	@Inject
+	private AcessoManagerMB acesso;
 
 	@PostConstruct
 	public void init() {
@@ -46,7 +45,7 @@ public class MenuManageMB implements Serializable {
 	public List<Menu> getMenuSup() {
 		
 		if (menuSup == null)
-			menuSup = menuService.lista(admin);
+			menuSup = menuService.lista(acesso.getUsuario());
 
 		return menuSup;
 
@@ -62,7 +61,7 @@ public class MenuManageMB implements Serializable {
 		menuSup1.setId(menu);
 
 		if (menuInt == null)
-			menuInt = menuService.lista(menuSup1, admin);
+			menuInt = menuService.lista(menuSup1, acesso.getUsuario());
 
 		return menuInt;
 

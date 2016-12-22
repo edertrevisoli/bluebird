@@ -15,14 +15,14 @@ import com.bluebird.comum.dao.impl.GenericDAOImpl;
 public class UsuarioDAO extends GenericDAOImpl<Usuario, Integer> implements IUsuarioDAO {
 
 	public List<Usuario> getAll() {
-		return em.createQuery("select f from usuario f").setMaxResults(100).getResultList();
+		return em.createQuery("select u from usuario u").setMaxResults(100).getResultList();
 	}
 
-	public Usuario getByNome(String nome) {
-		return (Usuario) em.createQuery("select u from usuario f where nome = :nome")
-				.setParameter("nome", nome).getSingleResult();
+	public Usuario getByLogin(String login) {
+		return (Usuario) em.createQuery("select u from usuario u where login = :login")
+				.setParameter("login", login).getSingleResult();
 	}
-
+	
 	@Override
 	public Usuario save(Usuario t) {
 		return save(t);
@@ -40,7 +40,6 @@ public class UsuarioDAO extends GenericDAOImpl<Usuario, Integer> implements IUsu
 
 	@Override
 	public Usuario update(Usuario Usuario) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

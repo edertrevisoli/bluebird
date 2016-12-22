@@ -11,7 +11,6 @@ import com.bluebird.cadastro.model.Menu;
 import com.bluebird.cadastro.model.Usuario;
 import com.bluebird.cadastro.repositories.MenuRepository;
 
-
 @Service
 public class MenuService {
 
@@ -32,7 +31,7 @@ public class MenuService {
 		}
 		return list;
 	}
-	
+
 	public List<Menu> getMenuById() {
 		List<Menu> all = menuRepository.findById("cadastros");
 		for (Object object : all) {
@@ -44,12 +43,18 @@ public class MenuService {
 	}
 
 	public List<Menu> lista(Usuario usuario) {
-			return menuDAO.lista(usuario);
+		return menuDAO.lista(usuario);
 	}
-	
+
 	public List<Menu> lista(Menu menu, Usuario usuario) {
-			return menuDAO.lista(menu, usuario);
+		return menuDAO.lista(menu, usuario);
 	}
 
-}
+	public List<Menu> listaPermissoes(Usuario usuario) {
+		return menuDAO.listaPermissoes(usuario);
+	}
 
+	public String getByLink(String link) {
+		return menuDAO.getByLink(link);
+	}
+}

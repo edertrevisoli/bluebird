@@ -9,6 +9,6 @@ public interface IUsuarioDAO extends GenericDAO<Usuario, Integer> {
 
 	public List<Usuario> getAll();
 
-	public Usuario getByNome(String nome);
+	public Usuario getByLogin(String login);
 
 }

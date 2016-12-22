@@ -31,5 +31,9 @@ public class UsuarioService {
 		return list;
 	}
 
+	public Usuario get(String login) {
+		Usuario usuario = usuarioDAO.getByLogin(login);
+		return usuario;
+	}
 }
 

@@ -42,6 +42,14 @@ public class Usuario implements Serializable, Cloneable {
 	@JoinColumn(name = "perfil_id")
 	private Perfil perfil;
 	
+	@ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+	@JoinColumn(name = "cliente_id")
+	private Cliente cliente;
+	
+	public Usuario() {
+	
+	}
+
 	public Usuario(Integer id, String nome, String email){
 		this.id = id;
 		this.nome = nome;

@@ -16,4 +16,8 @@ public interface IMenuDAO extends GenericDAO<Menu, Integer> {
 	
 	public List<Menu> lista(Menu menu, Usuario usuario);
 
+	public List<Menu> listaPermissoes(Usuario usuario);
+	
+	public String getByLink(String link);
+
 }

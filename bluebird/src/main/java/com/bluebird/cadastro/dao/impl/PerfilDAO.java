@@ -40,7 +40,6 @@ public class PerfilDAO extends GenericDAOImpl<Perfil, Integer> implements IPerfi
 
 	@Override
 	public Perfil update(Perfil Perfil) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	

@@ -41,6 +41,10 @@ public class Menu implements Serializable {
 		
 	}
 
+	public Menu(String id){
+		this.id = id;
+	}
+	
 	public Menu(String id, String label, String link){
 		this.id = id;
 		this.label = label;

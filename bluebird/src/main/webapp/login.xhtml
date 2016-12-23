@@ -1,26 +1,29 @@
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 	<link href="css/login.css" rel="stylesheet" type="text/css" />
 </h:head>
 <h:body>
-	<font color="red"> <h:outputLabel
-			value="${SPRING_SECURITY_LAST_EXCEPTION.message}" />
-	</font>
+
 	<div class="logo">
-			<div class="login-page">
-				<div class="form">
-					<form class="login-form" action="${request.contextPath}/appLogin"
-						method="POST">
-						<input type="text" name="app_username" /> <input type="password"
-							name="app_password" />
-						<button class="button" type="submit">Entrar</button>
-						<input type="hidden" name="${_csrf.parameterName}"
-							value="${_csrf.token}" />
-					</form>
-				</div>
+		<div class="login-page">
+			<div class="form">
+				<form class="login-form" action="${request.contextPath}/appLogin"
+					method="POST">
+					<font color="red"> <h:outputLabel
+							value="${SPRING_SECURITY_LAST_EXCEPTION.message}" />
+					</font> <input type="text" name="app_username" /> <input type="password"
+						name="app_password" />
+
+					<button class="button" type="submit">Entrar</button>
+
+					<input type="hidden" name="${_csrf.parameterName}"
+						value="${_csrf.token}" />
+				</form>
 			</div>
 		</div>
+	</div>
 </h:body>
 </html>

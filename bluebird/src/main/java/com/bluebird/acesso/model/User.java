@@ -18,6 +18,9 @@ public class User {
 	private String password;
 	private boolean enabled;
 	private Set<UserRole> userRole = new HashSet<UserRole>(0);
+	private boolean accountnonexpired;
+	private boolean accountnonlocked;
+	private boolean credentialsnonexpired;
 
 	public User() {
 	}
@@ -70,6 +73,30 @@ public class User {
 
 	public void setUserRole(Set<UserRole> userRole) {
 		this.userRole = userRole;
+	}
+
+	public boolean isAccountnonexpired() {
+		return accountnonexpired;
+	}
+
+	public void setAccountnonexpired(boolean accountnonexpired) {
+		this.accountnonexpired = accountnonexpired;
+	}
+
+	public boolean isAccountnonlocked() {
+		return accountnonlocked;
+	}
+
+	public void setAccountnonlocked(boolean accountnonlocked) {
+		this.accountnonlocked = accountnonlocked;
+	}
+
+	public boolean isCredentialsnonexpired() {
+		return credentialsnonexpired;
+	}
+
+	public void setCredentialsnonexpired(boolean credentialsnonexpired) {
+		this.credentialsnonexpired = credentialsnonexpired;
 	}
 
 }

@@ -1,10 +1,10 @@
-package com.bluebird.cadastro.repositories;
+package com.bluebird.acesso.repositories;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.bluebird.cadastro.model.Usuario;
+import com.bluebird.acesso.model.Usuario;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 	List<Usuario> findByNome(String nome);

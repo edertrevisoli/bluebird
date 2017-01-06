@@ -1,4 +1,4 @@
-package com.bluebird.cadastro.dao.impl;
+package com.bluebird.acesso.dao.impl;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.bluebird.cadastro.dao.IUsuarioDAO;
-import com.bluebird.cadastro.model.Usuario;
+import com.bluebird.acesso.dao.IUsuarioDAO;
+import com.bluebird.acesso.model.Usuario;
 import com.bluebird.comum.dao.impl.GenericDAOImpl;
 
 @Repository

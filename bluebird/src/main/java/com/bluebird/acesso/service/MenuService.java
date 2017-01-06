@@ -1,4 +1,4 @@
-package com.bluebird.cadastro.service;
+package com.bluebird.acesso.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,10 +6,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bluebird.cadastro.dao.IMenuDAO;
-import com.bluebird.cadastro.model.Menu;
-import com.bluebird.cadastro.model.Usuario;
-import com.bluebird.cadastro.repositories.MenuRepository;
+import com.bluebird.acesso.dao.IMenuDAO;
+import com.bluebird.acesso.model.Menu;
+import com.bluebird.acesso.model.Usuario;
+import com.bluebird.acesso.repositories.MenuRepository;
 
 @Service
 public class MenuService {

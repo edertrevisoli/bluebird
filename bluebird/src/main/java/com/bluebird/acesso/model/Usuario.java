@@ -1,4 +1,4 @@
-package com.bluebird.cadastro.model;
+package com.bluebird.acesso.model;
 
 import java.io.Serializable;
 
@@ -13,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import com.bluebird.cadastro.model.Cliente;
 
 @Entity(name = "usuario")
 @Table(name = "usuario")

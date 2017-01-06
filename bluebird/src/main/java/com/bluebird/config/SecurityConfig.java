@@ -1,8 +1,11 @@
 package com.bluebird.config;
 
 import javax.sql.DataSource;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -16,16 +19,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	DataSource dataSource;
 
+//	@Autowired
+//	public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
+//
+//	  auth.jdbcAuthentication().dataSource(dataSource)
+//		.usersByUsernameQuery(
+//			"select login,senha,ativo from usuario where login=?")
+//		.authoritiesByUsernameQuery(
+//			"select login,'ROLE_USER' from usuario where login=?");
+//	}
+
 	@Autowired
-	public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
+	@Qualifier("authenticationProvider")
+	AuthenticationProvider authenticationProvider;
 
-	  auth.jdbcAuthentication().dataSource(dataSource)
-		.usersByUsernameQuery(
-			"select login,senha,ativo from usuario where login=?")
-		.authoritiesByUsernameQuery(
-			"select login,'ROLE_USER' from usuario where login=?");
+	@Autowired
+	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+		auth.authenticationProvider(authenticationProvider);
 	}
-
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
@@ -41,16 +52,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		and().logout().    //logout configuration
 		logoutUrl("/appLogout"). 
 		logoutSuccessUrl("/login.jsf");
-		//.and().exceptionHandling()
-        //.accessDeniedPage("/customError.jsf");
-
-		
-		//usernameParameter("app_username").
-        //passwordParameter("app_password").
         
 	} 
-//	@Autowired
-//	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-//		auth.inMemoryAuthentication().withUser("tanga").password("123").roles("USER");
-//	}	
+
 }  

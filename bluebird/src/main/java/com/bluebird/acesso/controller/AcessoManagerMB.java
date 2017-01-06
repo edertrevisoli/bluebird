@@ -4,7 +4,7 @@ import javax.faces.bean.SessionScoped;
 import javax.inject.Named;
 
 import com.bluebird.acesso.SessionUtil;
-import com.bluebird.cadastro.model.Usuario;
+import com.bluebird.acesso.model.Usuario;
 
 @Named("acessoManagerMB")
 @SessionScoped

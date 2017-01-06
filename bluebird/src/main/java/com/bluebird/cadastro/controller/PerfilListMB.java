@@ -9,8 +9,8 @@ import javax.inject.Named;
 
 import org.springframework.context.annotation.Scope;
 
-import com.bluebird.cadastro.model.Perfil;
-import com.bluebird.cadastro.service.PerfilService;
+import com.bluebird.acesso.model.Perfil;
+import com.bluebird.acesso.service.PerfilService;
 
 
 @Named("PerfilListMB")

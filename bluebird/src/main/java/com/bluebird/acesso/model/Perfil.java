@@ -1,4 +1,4 @@
-package com.bluebird.cadastro.model;
+package com.bluebird.acesso.model;
 
 import java.io.Serializable;
 import java.util.List;

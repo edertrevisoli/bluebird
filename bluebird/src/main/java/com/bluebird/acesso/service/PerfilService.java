@@ -1,4 +1,4 @@
-package com.bluebird.cadastro.service;
+package com.bluebird.acesso.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,10 +6,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bluebird.cadastro.dao.IPerfilDAO;
-import com.bluebird.cadastro.model.Perfil;
-import com.bluebird.cadastro.model.Usuario;
-import com.bluebird.cadastro.repositories.PerfilRepository;
+import com.bluebird.acesso.dao.IPerfilDAO;
+import com.bluebird.acesso.model.Perfil;
+import com.bluebird.acesso.model.Usuario;
+import com.bluebird.acesso.repositories.PerfilRepository;
 
 
 @Service

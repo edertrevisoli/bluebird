@@ -10,8 +10,8 @@ import javax.inject.Named;
 import org.springframework.context.annotation.Scope;
 
 import com.bluebird.acesso.controller.AcessoManagerMB;
-import com.bluebird.cadastro.model.Menu;
-import com.bluebird.cadastro.service.MenuService;
+import com.bluebird.acesso.model.Menu;
+import com.bluebird.acesso.service.MenuService;
 
 
 @Named("menuManagerMB")

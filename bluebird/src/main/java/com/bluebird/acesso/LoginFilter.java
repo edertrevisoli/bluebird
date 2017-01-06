@@ -7,10 +7,10 @@ import javax.inject.Inject;
 import javax.servlet.Filter;
 import javax.servlet.http.HttpServletRequest;
 
-import com.bluebird.cadastro.model.Menu;
-import com.bluebird.cadastro.model.Usuario;
-import com.bluebird.cadastro.service.MenuService;
-import com.bluebird.cadastro.service.UsuarioService;
+import com.bluebird.acesso.model.Menu;
+import com.bluebird.acesso.model.Usuario;
+import com.bluebird.acesso.service.MenuService;
+import com.bluebird.acesso.service.UsuarioService;
 
 public abstract class LoginFilter implements Filter {
 

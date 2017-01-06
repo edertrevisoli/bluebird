@@ -11,8 +11,8 @@ import javax.inject.Named;
 
 import org.springframework.context.annotation.Scope;
 
-import com.bluebird.cadastro.model.Usuario;
-import com.bluebird.cadastro.service.UsuarioService;
+import com.bluebird.acesso.model.Usuario;
+import com.bluebird.acesso.service.UsuarioService;
 
 
 @Named("usuarioListMB")
